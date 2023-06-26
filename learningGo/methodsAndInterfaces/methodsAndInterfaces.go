@@ -3,7 +3,7 @@ package main
 
 import (
 	"fmt"
-    "math"
+  "math"
 )
 
 type Vertex struct {
@@ -18,4 +18,3 @@ func main() {
     v := Vertex {3,4}
     fmt.Println(v.Abs())
 }
-
