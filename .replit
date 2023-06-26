@@ -1,6 +1,10 @@
-run = "./main"
+run = "./learningGo/methodsAndInterfaces/methodsAndInterfaces"
 hidden = ["main"]
-compile = "go build -o main ."
+compile = "cd learningGo/methodsAndInterfaces && go build methodsAndInterfaces.go"
+
+# run = "./main"
+# hidden = ["main"]
+# compile = "go build"
 
 [languages.go]
 pattern = "**/*.go"
