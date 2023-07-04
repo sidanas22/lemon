@@ -33,6 +33,14 @@ func (l *Lexer) NextToken() token.Token {
 	case 0:
 		tok.Literal = ""
 		tok.Type = token.EOF
+	default:
+		if isLetter(l.ch) {
+			tok.Literal = l.readIdentifier()
+			tok.Type = token.LookupIdent(tok.Literal)
+			return tok // return statement here because the later readChar operation isn't needed
+		} else {
+			tok = newToken(token.ILLEGAL, l.ch)
+		}
 	}
 
 	l.readChar()
@@ -40,18 +48,17 @@ func (l *Lexer) NextToken() token.Token {
 
 }
 
-func newToken(tokenType token.TokenType, ch byte) token.Token {
-	return token.Token{Type: tokenType, Literal: string(ch)}
+func (l *Lexer) readIdentifier() string {
+	position := l.position
+	for isLetter(l.ch) {
+		l.readChar()
+	}
+	return l.input[position:l.position]
 }
 
-func New(input string) *Lexer {
-	l := &Lexer{input: input}
-	l.readChar()
-	return l
-}
-
-// TODO: add support for utf,unicode
-
+/**
+ * TODO: add support for utf,unicode
+ */
 func (l *Lexer) readChar() {
 	if l.readPosition >= len(l.input) {
 		// 0 is ASCII code for "NULL"
@@ -62,4 +69,23 @@ func (l *Lexer) readChar() {
 
 	l.position = l.readPosition
 	l.readPosition += 1
+}
+
+/**
+ * TODO:
+ * LOOK INTO CONSIDERING ! AND ?
+ * AS VALID PARTS OF IDENTIFIERS
+ */
+func isLetter(ch byte) bool {
+	return 'a' <= ch && ch <= 'z' || 'A' <= ch && ch <= 'Z' || ch == '_'
+}
+
+func newToken(tokenType token.TokenType, ch byte) token.Token {
+	return token.Token{Type: tokenType, Literal: string(ch)}
+}
+
+func New(input string) *Lexer {
+	l := &Lexer{input: input}
+	l.readChar()
+	return l
 }
