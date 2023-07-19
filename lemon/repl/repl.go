@@ -3,7 +3,6 @@ package repl
 import (
 	"bufio"
 	"fmt"
-	// "go/scanner"
 	"io"
 	"lemon/lemon/lexer"
 	"lemon/lemon/token"
