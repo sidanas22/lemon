@@ -1,6 +1,3 @@
-
-
-
 - two main strategieds when parsing
 
   top-down or bottom up
