@@ -37,6 +37,10 @@ type LetStatement struct {
 func (ls *LetStatement) statementNode()       {}
 func (ls *LetStatement) TokenLiteral() string { return ls.Token.Literal }
 
+/**
+ * check the 'when building AST' in notes.md
+ * for reasons for Identifier implementing Expression interface
+**/
 type Identifier struct {
 	Token token.Token // the token.IDENT token
 	Value string
@@ -44,3 +48,15 @@ type Identifier struct {
 
 func (i *Identifier) expressionNode()      {}
 func (i *Identifier) TokenLiteral() string { return i.Token.Literal }
+
+//                 *ast.Program
+//                  Statements
+//                       |
+//                       +
+//                *ast.LetStatement
+//                      Name
+//                      Value
+//                      |
+//              +-------+-------+
+//              |               |
+//      *ast.Identifier *ast.Expression

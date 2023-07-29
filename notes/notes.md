@@ -13,3 +13,11 @@
 
 - expressions vs statements ?
   this usually depends on the programming language. In Lemon, we are considering function literals as expressions. Some languages might nopt do so.
+
+- when building AST: to hold the identifier of the binding, the 'x' in 'let x= 5;', we
+  use the Identifier struct type. Notice that the Identifier structs implements the Expression 
+  interface. but the identifier 'x' in a let statement does't produce a value (remember the definition)
+  of the expression vs statements for this book) ... so why do we put it in expression ?
+  Answer: Just to keep things simple
+  
+  Also: Identifiers in other parts of the program DO produce values. for ex: let x = valueProducingIdentifier;
