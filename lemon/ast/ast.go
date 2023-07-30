@@ -54,8 +54,8 @@ func (i *Identifier) TokenLiteral() string { return i.Token.Literal }
 //                       |
 //                       +
 //                *ast.LetStatement
-//                      Name
-//                      Value
+//                     Name
+//                     Value
 //                      |
 //              +-------+-------+
 //              |               |
