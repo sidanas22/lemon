@@ -1,3 +1,13 @@
+### What is AST
+
+Abstract Syntax Tree is kind of an intermediate data structure that is used to represent what the source code means..in this instance , the source code , using the lexer has been turned into tokens and with thte help of these tokens we buiild out the Abstarct Syntax Tree , while also checing the correctness of the source code along the way...thus it also kinda does static analysis of the source code too.
+
+### What do parsers do ?
+
+take source code as input and produce a data structure that represents the source code. 
+
+- context free grammar is used by parser generators. context free grammar is a set of rules that describe how to correct sentences in a language.
+
 - two main strategieds when parsing
 
   top-down or bottom up
@@ -14,10 +24,15 @@
 - expressions vs statements ?
   this usually depends on the programming language. In Lemon, we are considering function literals as expressions. Some languages might nopt do so.
 
-- when building AST: to hold the identifier of the binding, the 'x' in 'let x= 5;', we
+- **when building AST**: to hold the identifier of the binding, the 'x' in 'let x= 5;', we
   use the Identifier struct type. Notice that the Identifier structs implements the Expression 
-  interface. but the identifier 'x' in a let statement does't produce a value (remember the definition)
-  of the expression vs statements for this book) ... so why do we put it in expression ?
-  Answer: Just to keep things simple
+  interface. but the identifier 'x' in a let statement does't produce a value (remember the definition
+  of the expression vs statements for this book ... expression produces value and statement doesn't.....this definition varies but we are considering it to be true) ... so why do we put it in expression ?
+  Answer: Just to keep things simple...because Identifiers in other parts of the monkey/lemon lang do produce values. for ex: let x = valueProducingIdentifier;
   
   Also: Identifiers in other parts of the program DO produce values. for ex: let x = valueProducingIdentifier;
+
+  - after reading recursive descent parser pseudocode:
+    - basic ideaa behind the recursive descent parser is evident in the pseudocode...the entry point is the parseProgram where it constructs the root node of Abstract Syntax Tree (AST) ...then the child nodes (statements) are built and then statements are built and this cycle goes on...
+  
+  
