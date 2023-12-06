@@ -35,4 +35,14 @@ take source code as input and produce a data structure that represents the sourc
   - after reading recursive descent parser pseudocode:
     - basic ideaa behind the recursive descent parser is evident in the pseudocode...the entry point is the parseProgram where it constructs the root node of Abstract Syntax Tree (AST) ...then the child nodes (statements) are built and then statements are built and this cycle goes on...
   
-  
+
+### Parsing expressions:
+
+- Pratt Parsing/ Top down operator precedence parsing as alternative to parsers using context free grammar /BNF
+
+ **Our interpreter won't have postfix operators in order to keep scope limited.**
+
+
+
+### TODO: Later
+ Look more into expression vs statements
