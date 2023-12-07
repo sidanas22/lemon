@@ -46,3 +46,6 @@ take source code as input and produce a data structure that represents the sourc
 
 ### TODO: Later
  Look more into expression vs statements
+ We are currently doing prefix and infix parsing ... what about postfix parsing? implement later
+
+ - also learn about buffers in detail in golang
