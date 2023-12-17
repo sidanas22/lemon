@@ -42,6 +42,17 @@ take source code as input and produce a data structure that represents the sourc
 
  **Our interpreter won't have postfix operators in order to keep scope limited.**
 
+### Statements, expressions & expression statement
+
+In our current understanding in this book, expression produce value, statements do not. This can vary from language to language but for now we will consider it to be true.
+
+- programs in lemon/monkey are made up of statements (let, return). now we are adding expression statements.
+
+Expression Statement: a statement that consists of only single expression. 
+
+`let x = 5;` -> this is a statement
+
+`x + 10;` -> this is an expression statement
 
 
 ### TODO: Later
