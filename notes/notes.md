@@ -33,12 +33,13 @@ take source code as input and produce a data structure that represents the sourc
   Also: Identifiers in other parts of the program DO produce values. for ex: let x = valueProducingIdentifier;
 
   - after reading recursive descent parser pseudocode:
-    - basic ideaa behind the recursive descent parser is evident in the pseudocode...the entry point is the parseProgram where it constructs the root node of Abstract Syntax Tree (AST) ...then the child nodes (statements) are built and then statements are built and this cycle goes on...
+    - basic idea behind the recursive descent parser is evident in the pseudocode...the entry point is the parseProgram where it constructs the root node of Abstract Syntax Tree (AST) ...then the child nodes (statements) are built and then statements are built and this cycle goes on...
   
-
 ### Parsing expressions:
 
 - Pratt Parsing/ Top down operator precedence parsing as alternative to parsers using context free grammar /BNF
+
+- Idea of Pratt parser: associating parsing functions with token type. Each token type can have two parsing functions associated with it depending on where the token is found: as a prefix or infix.
 
  **Our interpreter won't have postfix operators in order to keep scope limited.**
 
@@ -60,3 +61,7 @@ Expression Statement: a statement that consists of only single expression.
  We are currently doing prefix and infix parsing ... what about postfix parsing? implement later
 
  - also learn about buffers in detail in golang
+
+ ### Potential Nitpicks/ Eventual Improvements:
+
+ - variable naming needs to be improved
