@@ -65,3 +65,4 @@ Expression Statement: a statement that consists of only single expression.
  ### Potential Nitpicks/ Eventual Improvements:
 
  - variable naming needs to be improved
+ - If an operator should be right-associative instead of left-associative (in the case of + that would result in (a + (b  + c)) instead of ((a + b) + c), then we must use a smaller “right-binding power” when parsing the “right arm” of the operator expression. If you think about the ++ and -- operators in other languages, where they can be used in a pre- and a postfix position, you can see why it’s sometimes useful to have differing left- and right-binding powers for operators. **implement ++ and -- operators ?**

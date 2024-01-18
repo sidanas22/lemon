@@ -118,6 +118,7 @@ func (p *Parser) parseReturnStatement() *ast.ReturnStatement {
 }
 
 func (p *Parser) parseExpressionStatement() *ast.ExpressionStatement {
+	defer untrace(trace("parseExpressionStatement"))
 	stmt := &ast.ExpressionStatement{Token: p.curToken}
 
 	stmt.Expression = p.parseExpression(LOWEST)
@@ -229,6 +230,15 @@ func (p *Parser) parseInfixExpression(left ast.Expression) ast.Expression {
 
 	precedence := p.curPrecedence()
 	p.nextToken()
+
+	// ALTERNATIVE Fucntionality: To make "+" right associative. For e.g., "1 + 2 + 3" should be parsed as "(1 + (2 + 3))"
+	// if expression.Operator == "+"{
+	//   expression.Right = p.parseExpression(precedence -1)
+	// }
+	// else {
+	//   expression.Right = p.parseExpression(precedence)
+	// }
+
 	expression.Right = p.parseExpression(precedence)
 
 	return expression
